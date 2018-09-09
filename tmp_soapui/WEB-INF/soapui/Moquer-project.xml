@@ -1,0 +1,1535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="bdf568f3-25c3-47bc-b789-8b165c3fe59d" activeEnvironment="Default" name="Moquer" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="6ce1bf9e-74a9-408a-8ea3-84fcef06566f" wsaVersion="NONE" name="billingBinding" type="wsdl" bindingName="{http://copas.idm.telekom.com/copas/}billingBinding" soapVersion="1_1" anonymous="optional" definition="https://webcopas00.ver.sul.t-online.de/wcchwsdl/copas.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://webcopas00.ver.sul.t-online.de/wcchwsdl/copas.wsdl"><con:part><con:url>https://webcopas00.ver.sul.t-online.de/wcchwsdl/copas.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="copas" targetNamespace="http://copas.idm.telekom.com/copas/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:schema="http://copas.idm.telekom.com/schema/" xmlns:tns="http://copas.idm.telekom.com/copas/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://copas.idm.telekom.com/copas/">
+      <xsd:import namespace="http://copas.idm.telekom.com/schema/" schemaLocation="copasSchema.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="FaultResponse">
+    <wsdl:part name="fault" element="schema:FaultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetResult">
+    <wsdl:part name="parameters" element="schema:GetResult"/>
+  </wsdl:message>
+  <wsdl:message name="GetResultResponse">
+    <wsdl:part name="parameters" element="schema:GetResultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Reserve">
+    <wsdl:part name="parameters" element="schema:Reserve"/>
+  </wsdl:message>
+  <wsdl:message name="ReserveBasket">
+    <wsdl:part name="parameters" element="schema:ReserveBasket"/>
+  </wsdl:message>
+  <wsdl:message name="ReserveResponse">
+    <wsdl:part name="parameters" element="schema:ReserveResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Claim">
+    <wsdl:part name="parameters" element="schema:Claim"/>
+  </wsdl:message>
+  <wsdl:message name="ClaimResponse">
+    <wsdl:part name="parameters" element="schema:ClaimResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Cancel">
+    <wsdl:part name="parameters" element="schema:Cancel"/>
+  </wsdl:message>
+  <wsdl:message name="CancelResponse">
+    <wsdl:part name="parameters" element="schema:CancelResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetRequestData">
+    <wsdl:part name="parameters" element="schema:GetRequestData"/>
+  </wsdl:message>
+  <wsdl:message name="GetRequestDataResponse">
+    <wsdl:part name="parameters" element="schema:GetRequestDataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetResponse">
+    <wsdl:part name="parameters" element="schema:SetResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetResponseResponse">
+    <wsdl:part name="parameters" element="schema:SetResponseResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="billingPortType">
+    <wsdl:operation name="Reserve">
+      <wsdl:input message="tns:Reserve"/>
+      <wsdl:output message="tns:ReserveResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReserveBasket">
+      <wsdl:input message="tns:ReserveBasket"/>
+      <wsdl:output message="tns:ReserveResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetResult">
+      <wsdl:input message="tns:GetResult"/>
+      <wsdl:output message="tns:GetResultResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="Claim">
+      <wsdl:input message="tns:Claim"/>
+      <wsdl:output message="tns:ClaimResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <wsdl:input message="tns:Cancel"/>
+      <wsdl:output message="tns:CancelResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="bsp_backendPortType">
+    <wsdl:operation name="GetRequestData">
+      <wsdl:input message="tns:GetRequestData"/>
+      <wsdl:output message="tns:GetRequestDataResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetResponse">
+      <wsdl:input message="tns:SetResponse"/>
+      <wsdl:output message="tns:SetResponseResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="billingBinding" type="tns:billingPortType">
+    <soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#UTTransportPolicy"/>
+    <wsdl:operation name="Reserve">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/Reserve"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReserveBasket">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/ReserveBasket"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetResult">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/GetResult"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Claim">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/Claim"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/Cancel"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="bsp_backendBinding" type="tns:bsp_backendPortType">
+    <soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#UTTransportPolicy"/>
+    <wsdl:operation name="GetRequestData">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/GetRequestData"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetResponse">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/SetResponse"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="copas">
+    <wsdl:port name="billing" binding="tns:billingBinding">
+      <soapbind:address location="https://webcopas00.ver.sul.t-online.de:443/billing"/>
+    </wsdl:port>
+    <wsdl:port name="bsp_backend" binding="tns:bsp_backendBinding">
+      <soapbind:address location="https://webcopas00.ver.sul.t-online.de:443/bsp_backend"/>
+    </wsdl:port>
+  </wsdl:service>
+  <!--security policy specifying transport security measures and required soap header security elements-->
+  <wsp:Policy wsu:Id="UTTransportPolicy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding>
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens>
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken11/>
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://webcopas00.ver.sul.t-online.de/wcchwsdl/copasSchema.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://copas.idm.telekom.com/schema/" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://copas.idm.telekom.com/schema/">
+  <!--SAM compatibility types-->
+  <xsd:complexType name="field">
+    <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string" nillable="false"/>
+      <xsd:element name="value" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PayInfoType">
+    <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="amount" type="xsd:decimal" nillable="false"/>
+      <xsd:element name="fullAmount" type="xsd:decimal" nillable="true" minOccurs="0"/>
+      <xsd:element name="currency" type="xsd:string" nillable="false"/>
+      <xsd:element name="tax" type="xsd:decimal" nillable="false" minOccurs="0"/>
+      <xsd:element name="purchaseTime" type="xsd:dateTime"/>
+      <xsd:element name="clearingMethod" type="xsd:string" nillable="false"/>
+      <xsd:element name="paymentHandle" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="feature" type="xsd:string" nillable="false"/>
+      <xsd:element name="externalPaymentTransactionID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="voucherCode" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="campaignRefKey" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="campaignType" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="COMProductID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ComponentID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="SalesChannelID" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasarFeatureType">
+    <xsd:sequence>
+      <xsd:element name="NAME" type="xsd:string" nillable="false"/>
+      <xsd:element name="CURRENCY" type="xsd:string" nillable="false"/>
+      <xsd:element name="PRICE" type="xsd:string" nillable="false"/>
+      <xsd:element name="TAXRATE" type="xsd:string" nillable="false" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasarPriceModelType">
+    <xsd:sequence>
+      <xsd:element name="MODEL" type="xsd:string" nillable="false"/>
+      <xsd:element name="FEATURE" type="tns:BasarFeatureType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasarMetadataType">
+    <xsd:sequence>
+      <xsd:element name="PROVIDER_ID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="OBJECT_ID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="PRICEMODEL" type="tns:BasarPriceModelType" nillable="true" minOccurs="0"/>
+      <xsd:element name="PMI_KEY" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="DESCRIPTION" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="CLEARING_METHODS" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="CONTENT_ATTRIBUTES" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="COMProductID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ComponentID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="SalesChannelID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="subscription" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="forceTwoClick" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="twoClickHandles" type="tns:TwoClickHandleType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="detailDescription" type="tns:DetailDescriptionType" minOccurs="0"/>
+      <xsd:element name="subscriptionInfo" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="externalId" type="xsd:string" nillable="false" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ShopItem">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string" nillable="false"/>
+      <xsd:element name="description" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="quantity" type="xsd:integer" nillable="true" minOccurs="0"/>
+      <xsd:element name="currency" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="netprice" type="xsd:decimal" nillable="true" minOccurs="0"/>
+      <xsd:element name="tax" type="xsd:decimal" nillable="true" minOccurs="0"/>
+      <xsd:element name="discount" type="xsd:decimal" nillable="true" minOccurs="0"/>
+      <xsd:element name="price" type="xsd:decimal" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ShopBasket">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string" nillable="false"/>
+      <xsd:element name="date" type="xsd:dateTime"/>
+      <xsd:element name="items" type="tns:ShopItem" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="idDataType">
+    <xsd:sequence>
+      <xsd:element name="firstName" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="name" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="dateOfBirth" type="xsd:date" nillable="true" minOccurs="0"/>
+      <xsd:element name="salutationCode" type="xsd:int" nillable="true" minOccurs="0"/>
+      <xsd:element name="street" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="houseNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="houseNumberSuffix" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="zipCode" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="city" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="country" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ustid" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="clearingDataType">
+    <xsd:sequence>
+      <xsd:element name="PRICETAG" type="tns:BasarMetadataType" nillable="true" minOccurs="0"/>
+      <xsd:element name="shopBasket" type="tns:ShopBasket" nillable="true" minOccurs="0"/>
+      <xsd:element name="Basket" type="tns:BasketType" nillable="true" minOccurs="0"/>
+      <xsd:element name="numberOfBasketItems" type="xsd:int" nillable="false" minOccurs="0"/>
+      <xsd:element name="preferredClearingMethod" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="riskFlag" type="xsd:int" nillable="true" minOccurs="0"/>
+      <xsd:element name="idData" type="tns:idDataType" nillable="true" minOccurs="0"/>
+      <xsd:element name="mobileContentURL" type="xsd:anyURI" nillable="true" minOccurs="0"/>
+      <xsd:element name="MSISDN" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BSPClearingResponse">
+    <xsd:sequence>
+      <xsd:element name="payTID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="payTIDtimeout" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+      <xsd:element name="partialClaiming" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="alia" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="domt" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="displayName" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="payInfo" type="tns:PayInfoType" nillable="true" minOccurs="0"/>
+      <xsd:element name="MSISDN" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="additionalPaymentParameters" type="tns:field" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--END: SAM compatibility types-->
+  <!--BEGIN: new external interface-->
+  <xsd:complexType name="DialogType">
+    <xsd:annotation>
+      <xsd:documentation>browser info for Webcopas payments</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="wdycf" type="xsd:anyURI" nillable="false"/>
+      <xsd:element name="skinId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="lang" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="requireLogin" type="xsd:boolean" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ClientType">
+    <xsd:annotation>
+      <xsd:documentation>payment client info for SOA payment requests</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="origin" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="context" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TwoClickHandleType">
+    <xsd:sequence>
+      <xsd:element name="clearingMethod" type="xsd:string"/>
+      <xsd:element name="paymentHandle" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PurchaseType">
+    <xsd:sequence>
+      <xsd:element name="pmiKey" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="comProductId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="componentId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="clearingMethods" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="subscription" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="forceTwoClick" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="twoClickHandles" type="tns:TwoClickHandleType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="preferredClearingMethod" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="salesChannelId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="uStId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="productDetail" type="tns:ProductDetailType" nillable="true" minOccurs="0"/>
+      <xsd:element name="subscriptionInfo" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="externalId" type="xsd:string" nillable="false" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PurchaseBasketType">
+    <xsd:sequence>
+      <xsd:element name="pmiKey" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="comProductId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="componentId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="clearingMethods" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="subscription" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="forceTwoClick" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="twoClickHandles" type="tns:TwoClickHandleType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="preferredClearingMethod" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="salesChannelId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="uStId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="description" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="currency" type="xsd:string" nillable="false" minOccurs="0"/>
+      <xsd:element name="numberOfBasketItems" type="xsd:int" nillable="false" minOccurs="0"/>
+      <xsd:element name="externalId" type="xsd:string" nillable="false" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SectionType">
+    <xsd:sequence>
+      <xsd:element name="head" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="line" type="xsd:string" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DetailDescriptionType">
+    <xsd:sequence>
+      <xsd:element name="section" type="tns:SectionType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProductDetailType">
+    <xsd:sequence>
+      <xsd:element name="providerId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="goodsId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="description" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="currency" type="xsd:string" nillable="false" minOccurs="0"/>
+      <xsd:element name="price" type="xsd:decimal" nillable="false" minOccurs="0"/>
+      <xsd:element name="taxrate" type="xsd:integer" nillable="false" minOccurs="0"/>
+      <xsd:element name="detailDescription" type="tns:DetailDescriptionType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasketType">
+    <xsd:sequence>
+      <xsd:element name="items" type="tns:BasketItemType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasketItemType">
+    <xsd:sequence>
+      <xsd:element name="itemNumber" type="xsd:string" nillable="false"/>
+      <xsd:element name="pmiKey" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="comProductId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="componentId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="providerId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="goodsId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="goodsType" type="tns:GoodsTypeType" nillable="true" minOccurs="1"/>
+      <xsd:element name="description" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="quantity" type="xsd:decimal" nillable="false" minOccurs="1"/>
+      <xsd:element name="price" type="xsd:decimal" nillable="false" minOccurs="0"/>
+      <xsd:element name="reducedPrice" type="xsd:decimal" nillable="false" minOccurs="0"/>
+      <xsd:element name="discountReason" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="voucherId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="taxrate" type="xsd:string" nillable="false" minOccurs="0"/>
+      <xsd:element name="detailDescription" type="tns:DetailDescriptionType" minOccurs="0"/>
+      <xsd:element name="subscriptionInfo" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="GoodsTypeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="digital"/>
+      <xsd:enumeration value="haptisch"/>
+      <xsd:enumeration value="Versandkosten"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!--END: new external interface-->
+  <xsd:complexType name="GetResult_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="TID" type="xsd:string" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetResult_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="payTID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="payTIDtimeout" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+      <xsd:element name="payInfo" type="tns:PayInfoType" nillable="true" minOccurs="0"/>
+      <xsd:element name="additionalPaymentParameters" type="tns:field" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Reserve_RequestParameters">
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="dialog" type="tns:DialogType"/>
+        <xsd:element name="client" type="tns:ClientType"/>
+      </xsd:choice>
+      <xsd:element name="purchase" type="tns:PurchaseType" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ReserveBasket_RequestParameters">
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="dialog" type="tns:DialogType"/>
+        <xsd:element name="client" type="tns:ClientType"/>
+      </xsd:choice>
+      <xsd:element name="purchaseBasket" type="tns:PurchaseBasketType" nillable="true" minOccurs="0"/>
+      <xsd:element name="basket" type="tns:BasketType" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Reserve_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="TIDtimeout" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+      <xsd:element name="RedirectURL" type="xsd:anyURI" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Claim_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="payTID" type="xsd:string" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Claim_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Cancel_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="payTID" type="xsd:string" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Cancel_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetRequestData_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="TID" type="xsd:string" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetRequestData_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ssid" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ssidtimeout" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+      <xsd:element name="guid" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="domn" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="usta" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="astraGUID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="wdycf" type="xsd:anyURI" nillable="true" minOccurs="0"/>
+      <xsd:element name="callerappid" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="clearingData" type="tns:clearingDataType" nillable="true" minOccurs="0"/>
+      <xsd:element name="lang" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="externalClient" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="origin" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="context" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SetResponse_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="TID" type="xsd:string" nillable="false"/>
+      <xsd:element name="bspReturncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="bspErrormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="bspClearingResponse" type="tns:BSPClearingResponse" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SetResponse_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--elements-->
+  <xsd:element name="FaultResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="code" type="xsd:string" nillable="false"/>
+        <xsd:element name="message" type="xsd:string" nillable="false"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <!--GetResult-->
+  <xsd:element name="GetResult" type="tns:GetResult_RequestParameters"/>
+  <xsd:element name="GetResultResponse" type="tns:GetResult_ResponseParameters"/>
+  <!--Clearing-->
+  <xsd:element name="Reserve" type="tns:Reserve_RequestParameters"/>
+  <xsd:element name="ReserveBasket" type="tns:ReserveBasket_RequestParameters"/>
+  <xsd:element name="ReserveResponse" type="tns:Reserve_ResponseParameters"/>
+  <!--ClearingClaim-->
+  <xsd:element name="Claim" type="tns:Claim_RequestParameters"/>
+  <xsd:element name="ClaimResponse" type="tns:Claim_ResponseParameters"/>
+  <!--ClearingCancel-->
+  <xsd:element name="Cancel" type="tns:Cancel_RequestParameters"/>
+  <xsd:element name="CancelResponse" type="tns:Cancel_ResponseParameters"/>
+  <!--GetRequestData-->
+  <xsd:element name="GetRequestData" type="tns:GetRequestData_RequestParameters"/>
+  <xsd:element name="GetRequestDataResponse" type="tns:GetRequestData_ResponseParameters"/>
+  <!--SetResponse-->
+  <xsd:element name="SetResponse" type="tns:SetResponse_RequestParameters"/>
+  <xsd:element name="SetResponseResponse" type="tns:SetResponse_ResponseParameters"/>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://Gauravs-MacBook-Pro.local:8089/mockbillingBinding</con:endpoint><con:endpoint>https://webcopas00.ver.sul.t-online.de:443/billing</con:endpoint></con:endpoints><con:operation id="1320c546-1a91-4aa7-887c-5dbbe2b8f738" isOneWay="false" action="http://copas.idm.telekom.com/copas/Cancel" name="Cancel" bindingOperationName="Cancel" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0514089e-a603-4e8c-a52a-799373af9372" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://webcopas00.ver.sul.t-online.de:443/billing</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://copas.idm.telekom.com/schema/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:Cancel>
+         <sch:payTID>?</sch:payTID>
+      </sch:Cancel>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/Cancel"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="46e1d441-7a13-4718-b8a0-fc6177bc41b9" isOneWay="false" action="http://copas.idm.telekom.com/copas/Claim" name="Claim" bindingOperationName="Claim" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="93f359e9-d063-4a09-9735-4fa314f1c841" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webcopas00.ver.sul.t-online.de:443/billing</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://copas.idm.telekom.com/schema/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:Claim>
+         <sch:payTID>?</sch:payTID>
+      </sch:Claim>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/Claim"/></con:call></con:operation><con:operation id="c09bd0bb-7fde-4e39-9977-e5349e447e62" isOneWay="false" action="http://copas.idm.telekom.com/copas/GetResult" name="GetResult" bindingOperationName="GetResult" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d3c426e9-d240-4325-a8a8-384a89d3434f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://Gauravs-MacBook-Pro.local:8089/mockbillingBinding</con:endpoint><con:request><![CDATA[<soap:Envelope
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+        <wsse:Security
+            xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+            <wsse:UsernameToken>
+                <wsse:Username>10TVL0COPAS000004901CLOUDAPPSTORE0000000</wsse:Username>
+                <wsse:Password>******</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </SOAP-ENV:Header>
+    <soap:Body>
+        <GetResult
+            xmlns="http://copas.idm.telekom.com/schema/">
+            <TID>cZ-QP4CMN9UBpHggS2ghIP6B</TID>
+        </GetResult>
+    </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/GetResult"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0283f7e1-b627-4fa3-b920-f9ea726be7d5" isOneWay="false" action="http://copas.idm.telekom.com/copas/Reserve" name="Reserve" bindingOperationName="Reserve" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6552ef74-88e8-4d06-a198-8e6b6196e82f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://PUGKUMAR.local:8089/mockbillingBinding</con:endpoint><con:request><![CDATA[<soap:Envelope
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+        <wsse:Security
+            xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+            <wsse:UsernameToken>
+                <wsse:Username>10TVL0COPAS000004901CLOUDAPPSTORE0000000</wsse:Username>
+                <wsse:Password>******</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </SOAP-ENV:Header>
+    <soap:Body>
+        <Reserve
+            xmlns="http://copas.idm.telekom.com/schema/">
+            <dialog>
+                <wdycf>http://local.devtelekom.appdirect.com:8080/./payment?dtagOrderCartId=2032</wdycf>
+                <lang>en</lang>
+                <requireLogin>false</requireLogin>
+            </dialog>
+            <purchase>
+                <pmiKey>cloudappstore</pmiKey>
+                <subscription>true</subscription>
+                <uStId xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
+                <productDetail>
+                    <providerId>1</providerId>
+                    <goodsId>17600</goodsId>
+                    <description>C10560616APP - Service time 22.08.2017 to 21.09.2017</description>
+                    <currency>EUR</currency>
+                    <price>11.90</price>
+                        <taxrate>2</taxrate>
+                </productDetail>
+            </purchase>
+        </Reserve>
+    </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/Reserve"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="de4b8c2c-4db4-4454-8a4f-6aafcb7c4889" isOneWay="false" action="http://copas.idm.telekom.com/copas/ReserveBasket" name="ReserveBasket" bindingOperationName="ReserveBasket" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ee856e86-3e9a-4200-8723-c3bfb176ace4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webcopas00.ver.sul.t-online.de:443/billing</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://copas.idm.telekom.com/schema/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:ReserveBasket>
+         <!--You have a CHOICE of the next 2 items at this level-->
+         <sch:dialog>
+            <sch:wdycf>?</sch:wdycf>
+            <!--Optional:-->
+            <sch:skinId>?</sch:skinId>
+            <!--Optional:-->
+            <sch:lang>?</sch:lang>
+            <!--Optional:-->
+            <sch:requireLogin>?</sch:requireLogin>
+         </sch:dialog>
+         <sch:client>
+            <!--Optional:-->
+            <sch:origin>?</sch:origin>
+            <!--Optional:-->
+            <sch:context>?</sch:context>
+         </sch:client>
+         <!--Optional:-->
+         <sch:purchaseBasket>
+            <!--Optional:-->
+            <sch:pmiKey>?</sch:pmiKey>
+            <!--Optional:-->
+            <sch:comProductId>?</sch:comProductId>
+            <!--Optional:-->
+            <sch:componentId>?</sch:componentId>
+            <!--Optional:-->
+            <sch:clearingMethods>?</sch:clearingMethods>
+            <!--Optional:-->
+            <sch:subscription>?</sch:subscription>
+            <!--Optional:-->
+            <sch:forceTwoClick>?</sch:forceTwoClick>
+            <!--Zero or more repetitions:-->
+            <sch:twoClickHandles>
+               <sch:clearingMethod>?</sch:clearingMethod>
+               <sch:paymentHandle>?</sch:paymentHandle>
+            </sch:twoClickHandles>
+            <!--Optional:-->
+            <sch:preferredClearingMethod>?</sch:preferredClearingMethod>
+            <!--Optional:-->
+            <sch:salesChannelId>?</sch:salesChannelId>
+            <!--Optional:-->
+            <sch:uStId>?</sch:uStId>
+            <!--Optional:-->
+            <sch:description>?</sch:description>
+            <!--Optional:-->
+            <sch:currency>?</sch:currency>
+            <!--Optional:-->
+            <sch:numberOfBasketItems>?</sch:numberOfBasketItems>
+            <!--Optional:-->
+            <sch:externalId>?</sch:externalId>
+         </sch:purchaseBasket>
+         <!--Optional:-->
+         <sch:basket>
+            <!--1 or more repetitions:-->
+            <sch:items>
+               <sch:itemNumber>?</sch:itemNumber>
+               <!--Optional:-->
+               <sch:pmiKey>?</sch:pmiKey>
+               <!--Optional:-->
+               <sch:comProductId>?</sch:comProductId>
+               <!--Optional:-->
+               <sch:componentId>?</sch:componentId>
+               <!--Optional:-->
+               <sch:providerId>?</sch:providerId>
+               <!--Optional:-->
+               <sch:goodsId>?</sch:goodsId>
+               <sch:goodsType>?</sch:goodsType>
+               <!--Optional:-->
+               <sch:description>?</sch:description>
+               <sch:quantity>?</sch:quantity>
+               <!--Optional:-->
+               <sch:price>?</sch:price>
+               <!--Optional:-->
+               <sch:reducedPrice>?</sch:reducedPrice>
+               <!--Optional:-->
+               <sch:discountReason>?</sch:discountReason>
+               <!--Optional:-->
+               <sch:voucherId>?</sch:voucherId>
+               <!--Optional:-->
+               <sch:taxrate>?</sch:taxrate>
+               <!--Optional:-->
+               <sch:detailDescription>
+                  <!--1 or more repetitions:-->
+                  <sch:section>
+                     <!--Optional:-->
+                     <sch:head>?</sch:head>
+                     <!--1 or more repetitions:-->
+                     <sch:line>?</sch:line>
+                  </sch:section>
+               </sch:detailDescription>
+               <!--Optional:-->
+               <sch:subscriptionInfo>?</sch:subscriptionInfo>
+            </sch:items>
+         </sch:basket>
+      </sch:ReserveBasket>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/ReserveBasket"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="557dc069-6e62-4fe8-9244-df6a7c9e9878" wsaVersion="NONE" name="bsp_backendBinding" type="wsdl" bindingName="{http://copas.idm.telekom.com/copas/}bsp_backendBinding" soapVersion="1_1" anonymous="optional" definition="https://webcopas00.ver.sul.t-online.de/wcchwsdl/copas.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://webcopas00.ver.sul.t-online.de/wcchwsdl/copas.wsdl"><con:part><con:url>https://webcopas00.ver.sul.t-online.de/wcchwsdl/copas.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="copas" targetNamespace="http://copas.idm.telekom.com/copas/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:schema="http://copas.idm.telekom.com/schema/" xmlns:tns="http://copas.idm.telekom.com/copas/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://copas.idm.telekom.com/copas/">
+      <xsd:import namespace="http://copas.idm.telekom.com/schema/" schemaLocation="copasSchema.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="FaultResponse">
+    <wsdl:part name="fault" element="schema:FaultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetResult">
+    <wsdl:part name="parameters" element="schema:GetResult"/>
+  </wsdl:message>
+  <wsdl:message name="GetResultResponse">
+    <wsdl:part name="parameters" element="schema:GetResultResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Reserve">
+    <wsdl:part name="parameters" element="schema:Reserve"/>
+  </wsdl:message>
+  <wsdl:message name="ReserveBasket">
+    <wsdl:part name="parameters" element="schema:ReserveBasket"/>
+  </wsdl:message>
+  <wsdl:message name="ReserveResponse">
+    <wsdl:part name="parameters" element="schema:ReserveResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Claim">
+    <wsdl:part name="parameters" element="schema:Claim"/>
+  </wsdl:message>
+  <wsdl:message name="ClaimResponse">
+    <wsdl:part name="parameters" element="schema:ClaimResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Cancel">
+    <wsdl:part name="parameters" element="schema:Cancel"/>
+  </wsdl:message>
+  <wsdl:message name="CancelResponse">
+    <wsdl:part name="parameters" element="schema:CancelResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetRequestData">
+    <wsdl:part name="parameters" element="schema:GetRequestData"/>
+  </wsdl:message>
+  <wsdl:message name="GetRequestDataResponse">
+    <wsdl:part name="parameters" element="schema:GetRequestDataResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetResponse">
+    <wsdl:part name="parameters" element="schema:SetResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetResponseResponse">
+    <wsdl:part name="parameters" element="schema:SetResponseResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="billingPortType">
+    <wsdl:operation name="Reserve">
+      <wsdl:input message="tns:Reserve"/>
+      <wsdl:output message="tns:ReserveResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="ReserveBasket">
+      <wsdl:input message="tns:ReserveBasket"/>
+      <wsdl:output message="tns:ReserveResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetResult">
+      <wsdl:input message="tns:GetResult"/>
+      <wsdl:output message="tns:GetResultResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="Claim">
+      <wsdl:input message="tns:Claim"/>
+      <wsdl:output message="tns:ClaimResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <wsdl:input message="tns:Cancel"/>
+      <wsdl:output message="tns:CancelResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="bsp_backendPortType">
+    <wsdl:operation name="GetRequestData">
+      <wsdl:input message="tns:GetRequestData"/>
+      <wsdl:output message="tns:GetRequestDataResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetResponse">
+      <wsdl:input message="tns:SetResponse"/>
+      <wsdl:output message="tns:SetResponseResponse"/>
+      <wsdl:fault name="fault" message="tns:FaultResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="billingBinding" type="tns:billingPortType">
+    <soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#UTTransportPolicy"/>
+    <wsdl:operation name="Reserve">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/Reserve"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ReserveBasket">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/ReserveBasket"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetResult">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/GetResult"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Claim">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/Claim"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/Cancel"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="bsp_backendBinding" type="tns:bsp_backendPortType">
+    <soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#UTTransportPolicy"/>
+    <wsdl:operation name="GetRequestData">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/GetRequestData"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetResponse">
+      <soapbind:operation soapAction="http://copas.idm.telekom.com/copas/SetResponse"/>
+      <wsdl:input>
+        <soapbind:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soapbind:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+        <soapbind:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="copas">
+    <wsdl:port name="billing" binding="tns:billingBinding">
+      <soapbind:address location="https://webcopas00.ver.sul.t-online.de:443/billing"/>
+    </wsdl:port>
+    <wsdl:port name="bsp_backend" binding="tns:bsp_backendBinding">
+      <soapbind:address location="https://webcopas00.ver.sul.t-online.de:443/bsp_backend"/>
+    </wsdl:port>
+  </wsdl:service>
+  <!--security policy specifying transport security measures and required soap header security elements-->
+  <wsp:Policy wsu:Id="UTTransportPolicy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding>
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens>
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken11/>
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://webcopas00.ver.sul.t-online.de/wcchwsdl/copasSchema.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://copas.idm.telekom.com/schema/" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://copas.idm.telekom.com/schema/">
+  <!--SAM compatibility types-->
+  <xsd:complexType name="field">
+    <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string" nillable="false"/>
+      <xsd:element name="value" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PayInfoType">
+    <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="amount" type="xsd:decimal" nillable="false"/>
+      <xsd:element name="fullAmount" type="xsd:decimal" nillable="true" minOccurs="0"/>
+      <xsd:element name="currency" type="xsd:string" nillable="false"/>
+      <xsd:element name="tax" type="xsd:decimal" nillable="false" minOccurs="0"/>
+      <xsd:element name="purchaseTime" type="xsd:dateTime"/>
+      <xsd:element name="clearingMethod" type="xsd:string" nillable="false"/>
+      <xsd:element name="paymentHandle" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="feature" type="xsd:string" nillable="false"/>
+      <xsd:element name="externalPaymentTransactionID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="voucherCode" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="campaignRefKey" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="campaignType" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="COMProductID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ComponentID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="SalesChannelID" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasarFeatureType">
+    <xsd:sequence>
+      <xsd:element name="NAME" type="xsd:string" nillable="false"/>
+      <xsd:element name="CURRENCY" type="xsd:string" nillable="false"/>
+      <xsd:element name="PRICE" type="xsd:string" nillable="false"/>
+      <xsd:element name="TAXRATE" type="xsd:string" nillable="false" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasarPriceModelType">
+    <xsd:sequence>
+      <xsd:element name="MODEL" type="xsd:string" nillable="false"/>
+      <xsd:element name="FEATURE" type="tns:BasarFeatureType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasarMetadataType">
+    <xsd:sequence>
+      <xsd:element name="PROVIDER_ID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="OBJECT_ID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="PRICEMODEL" type="tns:BasarPriceModelType" nillable="true" minOccurs="0"/>
+      <xsd:element name="PMI_KEY" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="DESCRIPTION" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="CLEARING_METHODS" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="CONTENT_ATTRIBUTES" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="COMProductID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ComponentID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="SalesChannelID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="subscription" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="forceTwoClick" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="twoClickHandles" type="tns:TwoClickHandleType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="detailDescription" type="tns:DetailDescriptionType" minOccurs="0"/>
+      <xsd:element name="subscriptionInfo" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="externalId" type="xsd:string" nillable="false" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ShopItem">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string" nillable="false"/>
+      <xsd:element name="description" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="quantity" type="xsd:integer" nillable="true" minOccurs="0"/>
+      <xsd:element name="currency" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="netprice" type="xsd:decimal" nillable="true" minOccurs="0"/>
+      <xsd:element name="tax" type="xsd:decimal" nillable="true" minOccurs="0"/>
+      <xsd:element name="discount" type="xsd:decimal" nillable="true" minOccurs="0"/>
+      <xsd:element name="price" type="xsd:decimal" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ShopBasket">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string" nillable="false"/>
+      <xsd:element name="date" type="xsd:dateTime"/>
+      <xsd:element name="items" type="tns:ShopItem" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="idDataType">
+    <xsd:sequence>
+      <xsd:element name="firstName" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="name" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="dateOfBirth" type="xsd:date" nillable="true" minOccurs="0"/>
+      <xsd:element name="salutationCode" type="xsd:int" nillable="true" minOccurs="0"/>
+      <xsd:element name="street" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="houseNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="houseNumberSuffix" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="zipCode" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="city" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="country" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ustid" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="clearingDataType">
+    <xsd:sequence>
+      <xsd:element name="PRICETAG" type="tns:BasarMetadataType" nillable="true" minOccurs="0"/>
+      <xsd:element name="shopBasket" type="tns:ShopBasket" nillable="true" minOccurs="0"/>
+      <xsd:element name="Basket" type="tns:BasketType" nillable="true" minOccurs="0"/>
+      <xsd:element name="numberOfBasketItems" type="xsd:int" nillable="false" minOccurs="0"/>
+      <xsd:element name="preferredClearingMethod" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="riskFlag" type="xsd:int" nillable="true" minOccurs="0"/>
+      <xsd:element name="idData" type="tns:idDataType" nillable="true" minOccurs="0"/>
+      <xsd:element name="mobileContentURL" type="xsd:anyURI" nillable="true" minOccurs="0"/>
+      <xsd:element name="MSISDN" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BSPClearingResponse">
+    <xsd:sequence>
+      <xsd:element name="payTID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="payTIDtimeout" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+      <xsd:element name="partialClaiming" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="alia" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="domt" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="displayName" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="payInfo" type="tns:PayInfoType" nillable="true" minOccurs="0"/>
+      <xsd:element name="MSISDN" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="additionalPaymentParameters" type="tns:field" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--END: SAM compatibility types-->
+  <!--BEGIN: new external interface-->
+  <xsd:complexType name="DialogType">
+    <xsd:annotation>
+      <xsd:documentation>browser info for Webcopas payments</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="wdycf" type="xsd:anyURI" nillable="false"/>
+      <xsd:element name="skinId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="lang" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="requireLogin" type="xsd:boolean" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ClientType">
+    <xsd:annotation>
+      <xsd:documentation>payment client info for SOA payment requests</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="origin" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="context" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TwoClickHandleType">
+    <xsd:sequence>
+      <xsd:element name="clearingMethod" type="xsd:string"/>
+      <xsd:element name="paymentHandle" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PurchaseType">
+    <xsd:sequence>
+      <xsd:element name="pmiKey" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="comProductId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="componentId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="clearingMethods" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="subscription" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="forceTwoClick" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="twoClickHandles" type="tns:TwoClickHandleType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="preferredClearingMethod" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="salesChannelId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="uStId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="productDetail" type="tns:ProductDetailType" nillable="true" minOccurs="0"/>
+      <xsd:element name="subscriptionInfo" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="externalId" type="xsd:string" nillable="false" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PurchaseBasketType">
+    <xsd:sequence>
+      <xsd:element name="pmiKey" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="comProductId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="componentId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="clearingMethods" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="subscription" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="forceTwoClick" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="twoClickHandles" type="tns:TwoClickHandleType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="preferredClearingMethod" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="salesChannelId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="uStId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="description" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="currency" type="xsd:string" nillable="false" minOccurs="0"/>
+      <xsd:element name="numberOfBasketItems" type="xsd:int" nillable="false" minOccurs="0"/>
+      <xsd:element name="externalId" type="xsd:string" nillable="false" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SectionType">
+    <xsd:sequence>
+      <xsd:element name="head" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="line" type="xsd:string" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DetailDescriptionType">
+    <xsd:sequence>
+      <xsd:element name="section" type="tns:SectionType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProductDetailType">
+    <xsd:sequence>
+      <xsd:element name="providerId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="goodsId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="description" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="currency" type="xsd:string" nillable="false" minOccurs="0"/>
+      <xsd:element name="price" type="xsd:decimal" nillable="false" minOccurs="0"/>
+      <xsd:element name="taxrate" type="xsd:integer" nillable="false" minOccurs="0"/>
+      <xsd:element name="detailDescription" type="tns:DetailDescriptionType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasketType">
+    <xsd:sequence>
+      <xsd:element name="items" type="tns:BasketItemType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasketItemType">
+    <xsd:sequence>
+      <xsd:element name="itemNumber" type="xsd:string" nillable="false"/>
+      <xsd:element name="pmiKey" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="comProductId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="componentId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="providerId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="goodsId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="goodsType" type="tns:GoodsTypeType" nillable="true" minOccurs="1"/>
+      <xsd:element name="description" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="quantity" type="xsd:decimal" nillable="false" minOccurs="1"/>
+      <xsd:element name="price" type="xsd:decimal" nillable="false" minOccurs="0"/>
+      <xsd:element name="reducedPrice" type="xsd:decimal" nillable="false" minOccurs="0"/>
+      <xsd:element name="discountReason" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="voucherId" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="taxrate" type="xsd:string" nillable="false" minOccurs="0"/>
+      <xsd:element name="detailDescription" type="tns:DetailDescriptionType" minOccurs="0"/>
+      <xsd:element name="subscriptionInfo" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="GoodsTypeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="digital"/>
+      <xsd:enumeration value="haptisch"/>
+      <xsd:enumeration value="Versandkosten"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <!--END: new external interface-->
+  <xsd:complexType name="GetResult_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="TID" type="xsd:string" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetResult_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="payTID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="payTIDtimeout" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+      <xsd:element name="payInfo" type="tns:PayInfoType" nillable="true" minOccurs="0"/>
+      <xsd:element name="additionalPaymentParameters" type="tns:field" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Reserve_RequestParameters">
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="dialog" type="tns:DialogType"/>
+        <xsd:element name="client" type="tns:ClientType"/>
+      </xsd:choice>
+      <xsd:element name="purchase" type="tns:PurchaseType" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ReserveBasket_RequestParameters">
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="dialog" type="tns:DialogType"/>
+        <xsd:element name="client" type="tns:ClientType"/>
+      </xsd:choice>
+      <xsd:element name="purchaseBasket" type="tns:PurchaseBasketType" nillable="true" minOccurs="0"/>
+      <xsd:element name="basket" type="tns:BasketType" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Reserve_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="TIDtimeout" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+      <xsd:element name="RedirectURL" type="xsd:anyURI" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Claim_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="payTID" type="xsd:string" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Claim_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Cancel_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="payTID" type="xsd:string" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Cancel_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetRequestData_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="TID" type="xsd:string" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="GetRequestData_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ssid" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="ssidtimeout" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+      <xsd:element name="guid" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="domn" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="usta" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="astraGUID" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="wdycf" type="xsd:anyURI" nillable="true" minOccurs="0"/>
+      <xsd:element name="callerappid" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="clearingData" type="tns:clearingDataType" nillable="true" minOccurs="0"/>
+      <xsd:element name="lang" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="externalClient" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="origin" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="context" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SetResponse_RequestParameters">
+    <xsd:sequence>
+      <xsd:element name="TID" type="xsd:string" nillable="false"/>
+      <xsd:element name="bspReturncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="bspErrormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+      <xsd:element name="bspClearingResponse" type="tns:BSPClearingResponse" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SetResponse_ResponseParameters">
+    <xsd:sequence>
+      <xsd:element name="returncode" type="xsd:string" nillable="false"/>
+      <xsd:element name="errormessage" type="xsd:string" nillable="true" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--elements-->
+  <xsd:element name="FaultResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="code" type="xsd:string" nillable="false"/>
+        <xsd:element name="message" type="xsd:string" nillable="false"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <!--GetResult-->
+  <xsd:element name="GetResult" type="tns:GetResult_RequestParameters"/>
+  <xsd:element name="GetResultResponse" type="tns:GetResult_ResponseParameters"/>
+  <!--Clearing-->
+  <xsd:element name="Reserve" type="tns:Reserve_RequestParameters"/>
+  <xsd:element name="ReserveBasket" type="tns:ReserveBasket_RequestParameters"/>
+  <xsd:element name="ReserveResponse" type="tns:Reserve_ResponseParameters"/>
+  <!--ClearingClaim-->
+  <xsd:element name="Claim" type="tns:Claim_RequestParameters"/>
+  <xsd:element name="ClaimResponse" type="tns:Claim_ResponseParameters"/>
+  <!--ClearingCancel-->
+  <xsd:element name="Cancel" type="tns:Cancel_RequestParameters"/>
+  <xsd:element name="CancelResponse" type="tns:Cancel_ResponseParameters"/>
+  <!--GetRequestData-->
+  <xsd:element name="GetRequestData" type="tns:GetRequestData_RequestParameters"/>
+  <xsd:element name="GetRequestDataResponse" type="tns:GetRequestData_ResponseParameters"/>
+  <!--SetResponse-->
+  <xsd:element name="SetResponse" type="tns:SetResponse_RequestParameters"/>
+  <xsd:element name="SetResponseResponse" type="tns:SetResponse_ResponseParameters"/>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://webcopas00.ver.sul.t-online.de:443/bsp_backend</con:endpoint></con:endpoints><con:operation id="cd6dd55c-53f2-4343-a7c7-9a668bde596f" isOneWay="false" action="http://copas.idm.telekom.com/copas/GetRequestData" name="GetRequestData" bindingOperationName="GetRequestData" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e5b37aec-5eec-4178-a828-a954acc5e1a5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webcopas00.ver.sul.t-online.de:443/bsp_backend</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://copas.idm.telekom.com/schema/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:GetRequestData>
+         <sch:TID>?</sch:TID>
+      </sch:GetRequestData>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/GetRequestData"/></con:call></con:operation><con:operation id="4b41d526-5f25-4685-932d-1845544de74b" isOneWay="false" action="http://copas.idm.telekom.com/copas/SetResponse" name="SetResponse" bindingOperationName="SetResponse" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2d2fee92-86b1-4b65-9238-27b706c79442" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://webcopas00.ver.sul.t-online.de:443/bsp_backend</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://copas.idm.telekom.com/schema/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:SetResponse>
+         <sch:TID>?</sch:TID>
+         <sch:bspReturncode>?</sch:bspReturncode>
+         <!--Optional:-->
+         <sch:bspErrormessage>?</sch:bspErrormessage>
+         <!--Optional:-->
+         <sch:bspClearingResponse>
+            <!--Optional:-->
+            <sch:payTID>?</sch:payTID>
+            <!--Optional:-->
+            <sch:payTIDtimeout>?</sch:payTIDtimeout>
+            <!--Optional:-->
+            <sch:partialClaiming>?</sch:partialClaiming>
+            <!--Optional:-->
+            <sch:alia>?</sch:alia>
+            <!--Optional:-->
+            <sch:domt>?</sch:domt>
+            <!--Optional:-->
+            <sch:displayName>?</sch:displayName>
+            <!--Optional:-->
+            <sch:payInfo>
+               <sch:amount>?</sch:amount>
+               <!--Optional:-->
+               <sch:fullAmount>?</sch:fullAmount>
+               <sch:currency>?</sch:currency>
+               <!--Optional:-->
+               <sch:tax>?</sch:tax>
+               <sch:purchaseTime>?</sch:purchaseTime>
+               <sch:clearingMethod>?</sch:clearingMethod>
+               <!--Optional:-->
+               <sch:paymentHandle>?</sch:paymentHandle>
+               <sch:feature>?</sch:feature>
+               <!--Optional:-->
+               <sch:externalPaymentTransactionID>?</sch:externalPaymentTransactionID>
+               <!--Optional:-->
+               <sch:voucherCode>?</sch:voucherCode>
+               <!--Optional:-->
+               <sch:campaignRefKey>?</sch:campaignRefKey>
+               <!--Optional:-->
+               <sch:campaignType>?</sch:campaignType>
+               <!--Optional:-->
+               <sch:COMProductID>?</sch:COMProductID>
+               <!--Optional:-->
+               <sch:ComponentID>?</sch:ComponentID>
+               <!--Optional:-->
+               <sch:SalesChannelID>?</sch:SalesChannelID>
+            </sch:payInfo>
+            <!--Optional:-->
+            <sch:MSISDN>?</sch:MSISDN>
+            <!--Zero or more repetitions:-->
+            <sch:additionalPaymentParameters>
+               <sch:name>?</sch:name>
+               <sch:value>?</sch:value>
+            </sch:additionalPaymentParameters>
+         </sch:bspClearingResponse>
+      </sch:SetResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/SetResponse"/></con:call></con:operation></con:interface><con:mockService id="27603e4d-5ac7-4828-af08-dda7f8b551e5" port="8089" path="/mockbillingBinding" host="Gauravs-MacBook-Pro.local" name="billingBinding MockService" bindToHostOnly="false" docroot=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="Cancel" id="fec76e9f-45a6-45c8-b82d-4735a5ad3b56" interface="billingBinding" operation="Cancel"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="3e0e4a12-50fc-4d37-ac9a-025b8f9b354d" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://copas.idm.telekom.com/schema/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:CancelResponse>
+         <sch:returncode>0000</sch:returncode>
+         <!--Optional
+         <sch:errormessage>?</sch:errormessage> :-->
+      </sch:CancelResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/Cancel"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="Claim" id="f04662b5-3d1b-4b35-a44f-feae0238bb65" interface="billingBinding" operation="Claim"><con:settings/><con:defaultResponse>success_response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="success_response" id="1029ea2b-fd2f-4425-ab75-93d6b998286a" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://copas.idm.telekom.com/schema/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:ClaimResponse>
+         <sch:returncode>0000</sch:returncode>
+         <!--Optional
+         <sch:errormessage>?</sch:errormessage> :-->
+      </sch:ClaimResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/Claim"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="GetResult" id="c965a6ee-f1d8-4a9b-add1-9f05f7ce9ef4" interface="billingBinding" operation="GetResult"><con:settings/><con:defaultResponse>success_response</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="success_response" id="389897c6-50ce-4409-8ed1-7f6805685d36" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script>def generator = { String alphabet, int n ->
+  new Random().with {
+    (1..n).collect { alphabet[ nextInt( alphabet.length() ) ] }.join()
+  }
+}
+requestContext.PTID = generator( (('A'..'Z')+('0'..'9')+('-')).join(), 40 )</con:script><con:responseContent><![CDATA[<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:ns3="http://copas.idm.telekom.com/copas/billingBinding"
+    xmlns:ns4="http://copas.idm.telekom.com/copas/bsp_backendBinding"
+    xmlns:ns2="http://copas.idm.telekom.com/schema/">
+    <SOAP-ENV:Body>
+        <ns2:GetResultResponse>
+            <ns2:returncode xsi:type="xsd:string">0000</ns2:returncode>
+            <ns2:payTID xsi:type="xsd:string">${PTID}</ns2:payTID>
+            <ns2:payTIDtimeout xsi:type="xsd:dateTime">2017-08-23T06:00:15Z</ns2:payTIDtimeout>
+            <ns2:payInfo xsi:type="ns2:PayInfoType">
+                <ns2:amount xsi:type="xsd:decimal">${price}</ns2:amount>
+                <ns2:currency xsi:type="xsd:string">EUR</ns2:currency>
+                <ns2:tax xsi:type="xsd:decimal">19.0</ns2:tax>
+                <ns2:purchaseTime xsi:type="xsd:dateTime">2017-08-22T06:00:15Z</ns2:purchaseTime>
+                <ns2:clearingMethod xsi:type="xsd:string">toiclearing</ns2:clearingMethod>
+                <ns2:paymentHandle xsi:type="xsd:string">rVFd3+Lq2TmIeOstZTzxviOapncpCRoHH7enTRYxLMDi+rYPGHiHyZO3dW80XvK4mYRsjwNDGWwAYUY7Tu/JJqhCwoXxPTm5+8vaifQHP55M6PzeQxmDfYa+mWaW1jsA</ns2:paymentHandle>
+                <ns2:feature xsi:type="xsd:string">/feature/t-online/pay_per_click</ns2:feature>
+                <ns2:SalesChannelID xsi:type="xsd:string">700510</ns2:SalesChannelID>
+            </ns2:payInfo>
+            <ns2:additionalPaymentParameters xsi:type="ns2:field">
+                <ns2:name xsi:type="xsd:string">clearingmethod</ns2:name>
+                <ns2:value xsi:type="xsd:string">toiclearing</ns2:value>
+            </ns2:additionalPaymentParameters>
+            <ns2:additionalPaymentParameters xsi:type="ns2:field">
+                <ns2:name xsi:type="xsd:string">guid</ns2:name>
+                <ns2:value xsi:type="xsd:string">100049015990001463150001</ns2:value>
+            </ns2:additionalPaymentParameters>
+        </ns2:GetResultResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/GetResult"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="Reserve" id="5748a59f-59da-4e77-956f-48c9232e5f35" interface="billingBinding" operation="Reserve"><con:settings/><con:defaultResponse>success_response</con:defaultResponse><con:dispatchStyle>SCRIPT</con:dispatchStyle><con:dispatchPath>def request = new XmlSlurper().parseText(mockRequest.requestContent)
+def redirectURL = request.Body.Reserve.dialog.wdycf.toString()
+def price = request.Body.Reserve.purchase.productDetail.price.toString()
+requestContext.redirectURL = redirectURL
+context.price = price</con:dispatchPath><con:response name="success_response" id="ddac4ef8-a2f4-4fe6-8a6e-0111208d5aab" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script>def request = new XmlSlurper().parseText(mockRequest.requestContent)
+def redirectURL = request.Body.Reserve.dialog.wdycf.toString()
+requestContext.redirectURL = redirectURL
+</con:script><con:responseContent><![CDATA[<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:c14n="http://www.w3.org/2001/10/xml-exc-c14n#"
+    xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+    xmlns:ns3="http://copas.idm.telekom.com/copas/billingBinding"
+    xmlns:ns4="http://copas.idm.telekom.com/copas/bsp_backendBinding"
+    xmlns:ns2="http://copas.idm.telekom.com/schema/">
+    <SOAP-ENV:Body>
+        <ns2:ReserveResponse>
+            <ns2:returncode xsi:type="xsd:string">0000</ns2:returncode>
+            <ns2:TID xsi:type="xsd:string">e-47js1OzdUWFHwg0ll2eLzw</ns2:TID>
+            <ns2:TIDtimeout xsi:type="xsd:dateTime">2017-08-22T06:14:10Z</ns2:TIDtimeout>
+            <ns2:RedirectURL xsi:type="xsd:anyURI">${redirectURL}</ns2:RedirectURL>
+        </ns2:ReserveResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/Reserve"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="ReserveBasket" id="81c736ba-28a8-462e-ab6d-7b15b38ffdfc" interface="billingBinding" operation="ReserveBasket"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="df9b3706-3bf5-4873-89f5-98a7221f05f1" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://copas.idm.telekom.com/schema/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:ReserveResponse>
+         <sch:returncode>?</sch:returncode>
+         <!--Optional:-->
+         <sch:errormessage>?</sch:errormessage>
+         <!--Optional:-->
+         <sch:TID>?</sch:TID>
+         <!--Optional:-->
+         <sch:TIDtimeout>?</sch:TIDtimeout>
+         <!--Optional:-->
+         <sch:RedirectURL>?</sch:RedirectURL>
+      </sch:ReserveResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://copas.idm.telekom.com/copas/ReserveBasket"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService>
+<con:restMockService id="8924ef45-3095-4a71-a1bc-86066162af0f" port="8089" path="/" name="HealthCheck" host="39e2254c3797" docroot=""><con:settings/><con:properties/><con:restMockAction name="/health" method="GET" resourcePath="/health" id="3513bb34-6c4b-4af5-a756-255dcaaa05fa"><con:settings/><con:defaultResponse>HealthCheck1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath/><con:response name="HealthCheck1" id="4c45d201-83cd-44de-8d05-d972e59c362a" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:script/><con:responseContent>Moquer is up and running AppDirect mock-services!</con:responseContent></con:response></con:restMockAction></con:restMockService>
+<con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

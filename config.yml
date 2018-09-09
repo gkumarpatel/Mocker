@@ -1,0 +1,7 @@
+registry: docker.appdirect.tools
+repository: appdirect
+images: [ moquer, ad_mitmproxy ]
+version: 0.0.12
+moquerVersion: 0.0.4
+soapUIImage: ddavison/soapui
+soapUIVersion: 5.3.0
